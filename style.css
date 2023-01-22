@@ -1,0 +1,31 @@
+li {
+  font-size: 22px;
+}
+
+.big {
+  font-size: 40px;
+}
+
+.red {
+  color: red;
+}
+
+/*# sourceMappingURL=style.css.map */
+
+.active {
+  text-decoration: underline;
+}
+
+.div_wrap {
+  background-color: aquamarine;
+  width: 150px;
+}
+
+#text-block {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0 20px 0px;
+  font-size: 25px;
+  padding: 5px;
+  text-transform: uppercase;
+}
