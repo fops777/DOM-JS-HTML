@@ -124,15 +124,143 @@ pic.setAttribute('width', '200px') //меняем(добавляем) значе
 // }
 
 // input ------------------
-const inputText = document.querySelector('#input-text')
-const inputBlock = document.querySelector('#text-block')
+// const inputText = document.querySelector('#input-text')
+// const inputBlock = document.querySelector('#text-block')
 
-inputText.addEventListener('input', function () {
-    console.log(inputText.value);
-    inputBlock.innerText = inputText.value
-})
+// inputText.addEventListener('input', function () {
+//     inputBlock.innerText = inputText.value
+// })
+
+// Тоже самое(но мы просто передаем имя функции)
+
+// const inputText = document.querySelector('#input-text')
+// const blockText = document.querySelector('#text-block')
+
+// inputText.addEventListener('input', typing)
+
+// function typing() {
+//     blockText.innerText = inputText.value
+// }
 
 // -------------------------------------------------------------------------
+// ОБЪЕКТ EVENT в событиях
+// const list = document.querySelector('#list')
+
+// list.addEventListener('click', clickHandler)
+// function clickHandler(event) { // вместо слова event можно написать что угодно
+//     // console.log(event);
+//     // console.log(this);
+//     console.log(event.target);
+// }
+
+// const body = document.querySelector('.body') // на весь документ body
+// body.addEventListener('click', (event) => {
+//     console.log(event.target);
+// })
+
+
+// -------------------------------------------------------------------------
+// РАБОТА С HTML ЭЛЕМЕНТАМИ
+/*
+Создать элемент
+document.createElement('tag-name')
+
+Изменить HTML содержимое внутри элемента
+element.innerHTML = ''
+
+
+Изменить текстовое содержимое внутри элемента
+element.innerText = ''
+
+Клонирование элемента
+node.cloneNode() // если в () добавить true то скопируется со всем внутренним содержимым
+false - без внутреннего содержимого
+
+Вставить элемент внутрь другого элемента
+element.append(nodeOrDOMString)
+
+Удалить элемент
+element.remove()
+
+*/
+// Выбор контейнера
+// const container = document.querySelector('#elements-container')
+
+// Создание заголовка
+// const newHeader = document.createElement('h1')
+// newHeader.innerText = 'New h1 element'
+// container.append(newHeader)
+
+// Клонирование элементов
+// const mainHeader = document.querySelector('header')
+// const headerCopy = mainHeader.cloneNode(true) // можно с true(скопируется со всеми внутренностями)
+// container.append(headerCopy)
+
+// Вставка html разметки через строки
+// const htmlExample = '<h1>Еще один заголовок(добавлен через строку)</h1>'
+// container.insertAdjacentHTML('beforeend', htmlExample)
+
+// Вставка html разметки через шаблонные строки
+// const text = '(добавлен через шаблонную строку)'
+// const htmlExample2 = `<h1>Другой заголовок${text}</h1>`
+// container.insertAdjacentHTML('beforeend', htmlExample2)
+
+
+// -------------------------------------------------------------------------
+// ПРАКТИКА - СПИСОК ЗАДАЧ
+
+const todoList = document.querySelector('#todo-list')
+const todoForm = document.querySelector('#todo-form')
+const todoInput = document.querySelector('#todo-input')
+
+todoForm.addEventListener('submit', onSubmint) // добавляем прослушку на форму
+
+function onSubmint(event) {
+    event.preventDefault(); //отменить отправку формы(отменить перезагрузку страницы)
+
+    // Создаем элемент 
+    const newTask = todoInput.value   // получаем значение из формы(инпута)
+    const newElementLi = document.createElement('li') // создаем новый html элемент li
+    newElementLi.innerHTML = newTask // в новосозданный пустой элемент li вставляем данные из input
+
+    // Создаем кнопку удалить
+    const deleteBtn = document.createElement('button') // создаем новый элемент button
+    deleteBtn.setAttribute('role', 'button') // добавляем аттрибут
+    deleteBtn.innerText = 'delete' // надпись внутри кнопки
+    deleteBtn.style['margin-left'] = '7px' // добавляем margin-left
+    newElementLi.append(deleteBtn); // добавляем кнопку(удалить) внутрь li элемента
+
+    // Добавляем событие на кнопку удалить
+    deleteBtn.addEventListener('click', deleteTask)
+    function deleteTask() {
+        this.closest('li').remove()
+    }
+
+    // Добавляем новый элемент li на странуцу
+    todoList.append(newElementLi) // вставить <li>your task here</li> в todoList
+
+    // Дополнительные действия
+    todoInput.value = ' ' // очистить input
+    todoInput.focus() // фокус на input
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -------------------------------------------------------------------------
+// Чуть чуть практики
 // const textElement = document.querySelectorAll('li');
 // for (const elem of textElement) {
 //     const textElementContent = elem.innerHTML;

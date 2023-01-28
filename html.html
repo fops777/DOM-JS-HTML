@@ -9,7 +9,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<header>
+    <h1>Java Script для нубов</h1>
+    <div class="school-name">урок от Вебкадеми</div>
+</header>
+
+<body class="body">
     <div class="home">
         <h1>Hi</h1>
         <li name="li">фываыва</li>
@@ -28,11 +33,35 @@
         </ul>
     </div>
     <img class="picture" src="./moon.jpg" alt=""><br>
-    <button class="button">Remove img</button>
-    <hr>
-    <input type="text" id="input-text">
+    <button class="button">Remove img</button> <br><br>
+    <input type="text" id="input-text" placeholder="change me">
     <div class="div_wrap">
         <div id="text-block">...</div>
+    </div>
+    <ul id="list">
+        <li>Посмотреть вебинар</li>
+        <li>Написать конспект</li>
+        <li>Написать свою систему</li>
+        <button>click me</button>
+    </ul>
+    <div id="elements-container"></div>
+    <br>
+    <hr><br>
+
+    <!-- Todo List -->
+    <div class="simple-todo">
+        <div class="tasks-wrapper">
+            <h2>Todo List</h2>
+            <ol id="todo-list">
+                <li>Поменять защитку</li>
+                <li>Устроиться в компанию</li>
+                <li>Повторить весь материал</li>
+            </ol>
+        </div>
+        <form id="todo-form" >
+            <input id="todo-input" type="text" placeholder="Write text">
+            <button type="submit">Add todo</button>
+        </form>
     </div>
     <script src="./js.js"></script>
 </body>
