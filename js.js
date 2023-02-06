@@ -207,7 +207,7 @@ element.remove()
 
 
 // -------------------------------------------------------------------------
-// ПРАКТИКА - СПИСОК ЗАДАЧ
+// ПРАКТИКА - TODO LIST
 
 const todoList = document.querySelector('#todo-list')
 const todoForm = document.querySelector('#todo-form')
@@ -226,24 +226,25 @@ function onSubmint(event) {
     // Создаем кнопку удалить
     const deleteBtn = document.createElement('button') // создаем новый элемент button
     deleteBtn.setAttribute('role', 'button') // добавляем аттрибут
-    deleteBtn.innerText = 'delete' // надпись внутри кнопки
-    deleteBtn.style['margin-left'] = '7px' // добавляем margin-left
+    deleteBtn.innerText = 'del' // надпись внутри кнопки
     newElementLi.append(deleteBtn); // добавляем кнопку(удалить) внутрь li элемента
 
     // Добавляем событие на кнопку удалить
     deleteBtn.addEventListener('click', deleteTask)
     function deleteTask() {
-        this.closest('li').remove()
+        this.closest('li').remove() // ищет ближайший родитель li
     }
 
     // Добавляем новый элемент li на странуцу
     todoList.append(newElementLi) // вставить <li>your task here</li> в todoList
 
     // Дополнительные действия
-    todoInput.value = ' ' // очистить input
+    newElementLi.classList.add('liTask') // добавляем новый css класс к элементу
+    todoInput.value = '' // очистить input
     todoInput.focus() // фокус на input
 }
 
+//  --------------------------------------------------------------------------------------------------
 
 
 
